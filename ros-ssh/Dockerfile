@@ -30,7 +30,8 @@ RUN echo 'PasswordAuthentication yes\n\
 PermitEmptyPasswords yes\n\
 PermitRootLogin yes\n' >> /etc/ssh/sshd_config
 
-RUN echo 'ulimit -Sn 1024\n\
-source /opt/ros/noetic/setup.sh\n' >> /root/.bashrc
+RUN service ssh start
+
+RUN echo 'ulimit -Sn 1024\n' >> /root/.bashrc
 
 CMD ["/usr/sbin/sshd", "-D"]
