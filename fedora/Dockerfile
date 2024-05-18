@@ -20,6 +20,8 @@ RUN dnf update -y && dnf install -y \
     procps-ng \
     && dnf clean all && rm -rf /var/cache/yum
 
+COPY prompt.sh /etc/profile.d/
+
 RUN passwd -d root
 
 RUN ssh-keygen -A
